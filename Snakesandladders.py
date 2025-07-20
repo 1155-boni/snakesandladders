@@ -28,6 +28,18 @@ def climb(x):
     if(x==66):
         x=74
     return(x)
+def fall(y):
+    if(y==95):
+        y=18
+    if(y==77):
+        y=45
+    if(y==60):
+        y=28
+    if(y==34):
+        y=10
+    if(y==20):
+        y=2
+    return(y)
 l=[]
 board(l)
 ladderandsnake()
