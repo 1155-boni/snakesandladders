@@ -40,6 +40,48 @@ def fall(y):
     if(y==20):
         y=2
     return(y)
+def accept_from_user(move_1,move_2):
+    import random
+    dice=[1,2,3,4,5,6]
+    whoo=input("Enter Player 1 name in this GAME!\n")
+    wh=input("Enter Player 2 name in this GAME!\n")
+    who=int(input("Enter who wants to start the GAME! Enter 1 or 2...\n"))
+    while(move_1<=100 and move_2<=100):
+        if(who==1):
+            chance_1=int(input("{0} Enter 1 POLL the die!".format(whoo)))
+            if(chance_1==1):
+                player_1=random.choice(dice)
+                move_1+=player_1
+                print(move_1,"before climb")
+                move_1=climb(move_1)
+                print("{0} is at position {1}".format(whoo,move_1))
+                move_1=fall(move_1)
+                print(move_1,"After fall")
+                print("{0} is at position {1}".format(whoo,move_1))
+            else:
+                print("Enter 1 to PROCEED!..")
+            who+=1
+        else:
+            chance_2=int(input("{0} Enter 1 POLL the die!".format(wh)))
+            if(chance_2==1):
+                player_2=random.choice(dice)
+                move_2+=player_2
+                print(move_2,"before climb")
+                move_2=climb(move_2)
+                print("{0} is at position {1}".format(wh,move_2))
+                move_2=fall(move_2)
+                print(move_2,"After fall")
+                print("{0} is at position {1}".format(wh,move_2))
+            else:
+                print("Enter 1 to PROCEED!..")
+            who-=1
+    else:
+        if(move_1>move_2):
+            print("Congrats {0}!!".format(whoo))
+        else:
+            print("Congrats {0}!!".format(wh))
+
 l=[]
 board(l)
 ladderandsnake()
+accept_from_user(move_1=1,move_2=1)
